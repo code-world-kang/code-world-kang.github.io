@@ -4,120 +4,100 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kang Wei个人博客小站</title>
+    <title>kang wei 个人Github博客页面</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
-    <link rel="stylesheet" href="static/css/posts.css" />
-    <script src="/static/js/common.js"></script>
-
     <style>
+        /* 背景渐变色 来自https://gradihunt.com/g/00ffff-f9ffb3-90 */
+        html{
+            height: 100%;
+        }
         body {
-            /* 图片引自百度 可根据需求变换 */
-            background-image: url("https://pic1.zhimg.com/v2-3d614a333d89e9d498d60bd42e8b7b53_720w.jpg?source=172ae18b");
+            background-image: -moz-linear-gradient(180deg, rgb(158, 163, 255), rgb(158, 218, 255));
+            background-image: -webkit-linear-gradient(180deg, rgb(158, 163, 255), rgb(158, 218, 255));
+            background-image: linear-gradient(180deg, rgb(158, 163, 255), rgb(158, 218, 255));
         }
-        .text {
-            color: white;
-            text-shadow: 5px 5px gray;  /* 字体阴影 */
-            font-size: 35px;
-            font-family: STXingkai;
+        nav {
+            background-image: -moz-linear-gradient(45deg, rgb(204, 255, 255), rgb(204, 229, 255));
+            background-image: -webkit-linear-gradient(45deg, rgb(204, 255, 255), rgb(204, 229, 255));
+            background-image: linear-gradient(45deg, rgb(204, 255, 255), rgb(204, 229, 255));
         }
-        .source {
-            color: white;
-            font-size: 25px;
-            padding-left: 40%;
-            font-family: STXingkai;
+        #links div {
+            font-size: 20px;
+            margin-top: 20px;
         }
-        .show-sentence {
-            display: none;    /* 一开始隐藏div标签 */
-            text-align: center;
+        #profile {
+            background: none;
         }
     </style>
-    <script>
-        // 异步ajax
-        $.ajax({
-            type: 'GET',
-            url: 'https://api.fghrsh.net/hitokoto/rand/?encode=jsc&uid=3335',
-            success: function(data){
-                $(".text").text(data.hitokoto);  // 获取名言内容
-                if (data.source){     // 如果来源不为空
-                    $(".author").text(data.source);
-                } else {
-                    $(".source").hide();   // 隐藏来源
-                }
-                // 淡入显示
-                $(".show-sentence").fadeIn(4000)
-            },
-        });
-    </script>
 </head>
 <body>
-    <!-- 标题栏目 -->
-    <div class="nav"></div>
-    <div class="show-sentence">
-        <p class="text"></p>
-        <p class="source">
-            ———— <span class="author"></span>
-        </p>
-    </div>
-    <div class="jumbotron">
-        <h1>Hello Everyone !</h1>
-        <p>这里是Kang Wei 的个人博客！</p>
-        <p>这里是我的私人小世界，也是我的文章列表！</p>
-    </div>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="https://code-world-kang.github.io">code-world-kang</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a href="https://github.com/code-world-kang">Github</a></li>
+                <li><a href="https://root.cern.ch/">Cern root</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <!-- 搜索表单 -->
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search......">
+                </div>
+                <button type="submit" class="btn btn-primary">搜索</button>
+              </form>
+              <ul class="nav navbar-nav navbar-right">
+                <!-- 右侧链接 -->
+                <li class="dropdown">
+                    <!-- 下拉菜单 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">其他资源<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">用户资讯</a></li>
+                      <li><a href="#">用户帮助</a></li>
+                      <li><a href="#">联系客服</a></li>
+                    </ul>
+                  </li>
+                <li><a href="#">登录/注册</a></li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    
     <div class="container">
-        <div class="row">
-        	<!-- 文章列表 -->
-            <div class="col-md-8">
-                <ul class="list-group">
-                    <li class="list-group-item" id="post">
-                        <div class="row">
-                            <div class="col-xs-3"><img src="/static/images/nuclear.jpg"/></div>
-                            <div class="col-xs-9">
-                                <!-- 文章标签 -->
-                                <a href="https://code-world-kang.github.io/Note_github/" class="post-title">github个人网站链接</a>
-                                <p class="post-tag"> 
-                                    <!--标签-->
-                                    <span class="label label-danger">Python</span>
-                                    <span class="label label-warning">Hello World</span>
-                                </p>
-                                <p class="post-info">
-                                    <span>作者：<a href="https://github.com/code-world-kang">code-world-kang</a></span>
-                                </p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            <!-- 第二篇文章 -->        
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-header">
-                        <h2>HTML举例</h2>
-                        <p><a class="btn btn-primary" href="https://blog.csdn.net/wangzirui32/category_10807102.html">View more ...</a></p>
+        <div class="jumbotron">
+            <div class="container">
+                <h1>这里是code-world-kang的个人网站</small></h1>
+                <p>记录学习与生活中的琐事，以及相应的学习笔记</p>
+            </div>
+        </div>
+        <h3>关于数据分析软件的Jupyter笔记 <small>markdown</small></h3>
+        <div class="row" id="links">
+            <div class="col-md-3"><a href="https://blog.csdn.net/wangzirui32/category_10745800.html">Python</a></div>
+            <div class="col-md-3"><a href="https://blog.csdn.net/wangzirui32/category_10923311.html">Python网络爬虫</a></div>
+            <div class="col-md-3"><a href="https://blog.csdn.net/wangzirui32/category_10765644.html">Python番外篇</a></div>
+            <div class="col-md-3"><a href="https://blog.csdn.net/wangzirui32/category_10807102.html">HTML</a></div>
+        </div>
+        <div id="profile" class="panel">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img style="padding-left: 2px;" src="/nuclear.jpg" class="img-circle"/> 
+                    </div>
+                    <div class="col-md-10">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <h3>关于我 <small>About Me</small></h3>
+                        <p>长期致力于原子核物理研究，从事不稳定核物理、原子核的集团放射性等理论与实验研究</p>
+                        <p>该网站的搭建基于wangzirui32的个人网站构建，在此表示感谢</p>
                     </div>
                 </div>
-            </div>
-            
-        </div>
-        <!-- 分界线 -->  
-        <div class="row">
-            <div class="col-md-6">
-                <h2>资源类文章</h2>
-                <ul class="list-group">
-                	<!-- 最新文章列表 -->
-                    <li class="list-group-item">
-                        <a href="https://blog.csdn.net/wangzirui32/category_10807102.html">HTML简介</a>
-                        <small>发布于 2022-6-11 21:37</small>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <h2>生活杂谈类文章</h2>
-                <!-- 评论列表 -->
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        1、
-                    </li>
-                </ul>
             </div>
         </div>
     </div>
